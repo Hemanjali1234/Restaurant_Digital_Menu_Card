@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Royal Indian Restaurant - Menu</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#b23b2b;
+      --brand-dark:#8f2f22;
+      --accent:#ffb703;
+      --bg:#fffaf4;
+      --card:#ffffff;
+      --text:#333;
+      --muted:#666;
+      --price:#2e7d32;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    /* Header / Nav */
+    header{
+      background:var(--brand);
+      color:#fff;
+      position:sticky; top:0; z-index:1000;
+      box-shadow:0 4px 10px rgba(0,0,0,.15);
+    }
+    .nav-wrap{
+      max-width:1200px; margin:auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px;
+    }
+    .brand{
+      font-size:1.6rem; font-weight:700; letter-spacing:.5px;
+    }
+    nav a{
+      color:#fff; text-decoration:none; font-weight:500;
+      margin:0 10px; padding:8px 12px; border-radius:8px;
+      transition:background .2s ease;
+    }
+    nav a:hover{ background:rgba(255,255,255,.15) }
+
+    /* Hero */
+    .hero{
+      position:relative; text-align:center; color:#fff;
+      background:url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      /* keep hero background image as requested */
+      padding:130px 20px;
+      background-attachment:fixed;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35));
+    }
+    .hero-inner{ position:relative; z-index:1; max-width:900px; margin:auto }
+    .hero h1{ font-size:3rem; margin-bottom:10px; }
+    .hero p{ font-size:1.15rem; opacity:.95 }
+
+    /* Sections */
+    .menu-section{ max-width:1200px; margin:auto; padding:50px 20px }
+    .section-title{
+      font-size:2rem; color:var(--brand);
+      display:inline-block; border-bottom:4px solid var(--brand);
+      padding-bottom:6px; margin-bottom:24px;
+    }
+
+    .menu-category{ margin:28px 0 10px }
+    .menu-category h3{
+      color:var(--brand-dark); font-size:1.3rem; margin-bottom:14px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .pill{
+      font-size:.75rem; background:#ffe5d9; color:var(--brand-dark);
+      padding:4px 10px; border-radius:20px; border:1px dashed var(--brand);
+    }
+
+    /* Grid of items (no images) */
+    .menu-items{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+      gap:18px;
+    }
+    .menu-item{
+      background:var(--card);
+      border-radius:12px;
+      padding:16px;
+      box-shadow:0 6px 14px rgba(0,0,0,.08);
+      transition:.25s ease;
+      border:1px solid rgba(0,0,0,.04);
+    }
+    .menu-item:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 18px rgba(0,0,0,.12);
+    }
+    .menu-item h4{
+      font-size:1.05rem; margin-bottom:6px; color:#444;
+    }
+    .desc{ color:var(--muted); font-size:.9rem; }
+    .price{ color:var(--price); font-weight:700; margin-top:8px }
+
+    /* Special highlight */
+    .special{
+      border:2px solid var(--accent);
+      background:linear-gradient(180deg,#fff7df,#fff);
+      position:relative;
+    }
+    .badge{
+      position:absolute; top:10px; right:10px;
+      background:var(--accent); color:#5f3700; font-weight:700;
+      font-size:.72rem; padding:3px 8px; border-radius:12px;
+      box-shadow:0 2px 6px rgba(0,0,0,.15);
+    }
+
+    /* Specials band */
+    .specials{
+      background:#ffe5d9; text-align:center; padding:32px 20px;
+    }
+    .specials h3{ color:var(--brand); font-size:1.8rem; margin-bottom:6px }
+    .specials p{ color:#6a3a2f }
+
+    /* Footer */
+    footer{
+      background:var(--brand); color:#fff; text-align:center; padding:22px 16px;
+    }
+    footer a{ color:#fff; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.6) }
+    footer a:hover{ border-bottom-color:#fff }
+
+    /* Responsive tweaks */
+    @media (max-width:600px){
+      .hero h1{ font-size:2.2rem }
+      nav{ display:flex; flex-wrap:wrap; justify-content:center }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">Royal Indian Restaurant</div>
+      <nav>
+        <a href="#starters">Starters</a>
+        <a href="#curries">Curries</a>
+        <a href="#maincourse">Main Course</a>
+        <a href="#desserts">Desserts</a>
+        <a href="#cooldrinks">Cool Drinks</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (background image retained) -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Welcome to Royal Indian Restaurant</h1>
+      <p>Authentic flavors, crafted with passion — explore our curated Indian menu.</p>
+    </div>
+  </section>
+
+  <!-- Starters -->
+  <div class="menu-section" id="starters">
+    <h2 class="section-title">Starters</h2>
+
+    <!-- Veg Starters -->
+    <div class="menu-category">
+      <h3>Veg Starters <span class="pill">Pure Veg</span></h3>
+      <div class="menu-items">
+        <div class="menu-item"><h4>Paneer Tikka</h4><p class="desc">Cottage cheese marinated overnight, grilled smoky.</p><div class="price">₹220</div></div>
+        <div class="menu-item"><h4>Hara Bhara Kebab</h4><p class="desc">Spinach–pea patties, crisp outside, soft inside.</p><div class="price">₹180</div></div>
+        <div class="menu-item"><h4>Veg Manchurian (Dry)</h4><p class="desc">Crispy veg balls tossed in Indo-Chinese sauce.</p><div class="price">₹170</div></div>
+        <div class="menu-item"><h4>Gobi 65</h4><p class="desc">Cauliflower florets fried with curry leaves & spice.</p><div class="price">₹165</div></div>
+        <div class="menu-item"><h4>Chilli Paneer</h4><p class="desc">Paneer tossed with capsicum, onions, chilli glaze.</p><div class="price">₹210</div></div>
+        <div class="menu-item"><h4>Dahi Ke Kebab</h4><p class="desc">Silky yogurt kebabs, pan-seared golden.</p><div class="price">₹195</div></div>
+        <div class="menu-item"><h4>Stuffed Mushrooms</h4><p class="desc">Cheese & herb filled button mushrooms.</p><div class="price">₹205</div></div>
+        <div class="menu-item"><h4>Tandoori Broccoli</h4><p class="desc">Charred florets with hung curd marinade.</p><div class="price">₹200</div></div>
+        <div class="menu-item"><h4>Soya Chaap Tikka</h4><p class="desc">North-Indian style chaap skewers, smoky & juicy.</p><div class="price">₹190</div></div>
+        <div class="menu-item"><h4>Corn Cheese Balls</h4><p class="desc">Gooey cheese & sweet corn fritters.</p><div class="price">₹175</div></div>
+        <div class="menu-item"><h4>Veg Spring Rolls</h4><p class="desc">Crispy rolls stuffed with spiced veggies.</p><div class="price">₹160</div></div>
+        <div class="menu-item"><h4>Aloo Tikki Chaat</h4><p class="desc">Crisp potato patties, chutneys, sev & curd.</p><div class="price">₹160</div></div>
+      </div>
+    </div>
+
+    <!-- Non-Veg Starters -->
+    <div class="menu-category">
+      <h3>Non-Veg Starters <span class="pill">Chef’s Picks</span></h3>
+      <div class="menu-items">
+        <div class="menu-item"><h4>Chicken Tikka</h4><p class="desc">Boneless pieces marinated overnight; tandoor-grilled.</p><div class="price">₹260</div></div>
+        <div class="menu-item"><h4>Chicken 65</h4><p class="desc">Fiery South-Indian fry with curry leaves.</p><div class="price">₹240</div></div>
+        <div class="menu-item"><h4>Chilli Chicken (Dry)</h4><p class="desc">Indo-Chinese style with peppers & onions.</p><div class="price">₹245</div></div>
+        <div class="menu-item"><h4>Chicken Lollipop</h4><p class="desc">Crispy drumettes tossed in spicy sauce.</p><div class="price">₹230</div></div>
+        <div class="menu-item"><h4>Tandoori Chicken (Half)</h4><p class="desc">Classic clay-oven roasted, smoky & succulent.</p><div class="price">₹320</div></div>
+        <div class="menu-item"><h4>Fish Amritsari</h4><p class="desc">Ajwain-flavoured gram-flour fried fish.</p><div class="price">₹295</div></div>
+        <div class="menu-item"><h4>Fish Tikka</h4><p class="desc">Spiced cubes, charred edges, flaky inside.</p><div class="price">₹310</div></div>
+        <div class="menu-item"><h4>Prawn Koliwada</h4><p class="desc">Mumbai-style crisp prawns, tangy & bold.</p><div class="price">₹360</div></div>
+        <div class="menu-item"><h4>Mutton Seekh Kebab</h4><p class="desc">Juicy minced mutton skewers, grilled.</p><div class="price">₹360</div></div>
+        <div class="menu-item"><h4>Chicken Malai Tikka</h4><p class="desc">Creamy, mildly spiced & ultra tender.</p><div class="price">₹270</div></div>
+        <div class="menu-item"><h4>Pepper Chicken</h4><p class="desc">Black pepper tossed chicken, hearty heat.</p><div class="price">₹250</div></div>
+        <div class="menu-item"><h4>Tandoori Prawns</h4><p class="desc">Smoky jumbo prawns with coastal spices.</p><div class="price">₹420</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Curries -->
+  <div class="menu-section" id="curries">
+    <h2 class="section-title">Curries</h2>
+
+    <!-- Veg Curries -->
+    <div class="menu-category">
+      <h3>Veg Curries <span class="pill">Comfort Classics</span></h3>
+      <div class="menu-items">
+        <div class="menu-item"><h4>Paneer Butter Masala</h4><p class="desc">Silky tomato-makhani sauce, soft paneer.</p><div class="price">₹240</div></div>
+        <div class="menu-item"><h4>Kadai Paneer</h4><p class="desc">Crushed spices, peppers & onion; bold flavours.</p><div class="price">₹250</div></div>
+        <div class="menu-item"><h4>Palak Paneer</h4><p class="desc">Creamed spinach with paneer, tempered garlic.</p><div class="price">₹230</div></div>
+        <div class="menu-item"><h4>Matar Paneer</h4><p class="desc">Green peas in rich onion-tomato gravy.</p><div class="price">₹225</div></div>
+        <div class="menu-item"><h4>Malai Kofta</h4><p class="desc">Paneer-potato dumplings in cashew cream.</p><div class="price">₹265</div></div>
+        <div class="menu-item"><h4>Dal Makhani</h4><p class="desc">Slow-simmered black lentils, butter & cream.</p><div class="price">₹210</div></div>
+        <div class="menu-item"><h4>Dal Tadka</h4><p class="desc">Yellow lentils tempered with ghee & garlic.</p><div class="price">₹180</div></div>
+        <div class="menu-item"><h4>Veg Korma</h4><p class="desc">Mixed veg in cashew-coconut velvety gravy.</p><div class="price">₹235</div></div>
+        <div class="menu-item"><h4>Veg Kolhapuri</h4><p class="desc">Spicy, rustic, red masala from Maharashtra.</p><div class="price">₹225</div></div>
+        <div class="menu-item"><h4>Chana Masala</h4><p class="desc">Tangy chickpeas, aamchur & garam masala.</p><div class="price">₹190</div></div>
+        <div class="menu-item"><h4>Aloo Gobi Masala</h4><p class="desc">Potato & cauliflower, home-style masala.</p><div class="price">₹185</div></div>
+        <div class="menu-item"><h4>Bhindi Masala</h4><p class="desc">Okra sautéed with onions, tomatoes & spice.</p><div class="price">₹185</div></div>
+        <div class="menu-item"><h4>Baingan Bharta</h4><p class="desc">Smoky roasted eggplant, slow-cooked.</p><div class="price">₹195</div></div>
+        <div class="menu-item"><h4>Mushroom Masala</h4><p class="desc">Button mushrooms in savoury brown gravy.</p><div class="price">₹210</div></div>
+      </div>
+    </div>
+
+    <!-- Non-Veg Curries -->
+    <div class="menu-category">
+      <h3>Non-Veg Curries <span class="pill">House Favorites</span></h3>
+      <div class="menu-items">
+        <div class="menu-item"><h4>Butter Chicken</h4><p class="desc">Iconic makhani gravy, tandoori chicken.</p><div class="price">₹290</div></div>
+        <div class="menu-item"><h4>Chicken Tikka Masala</h4><p class="desc">Roasted tikka in spiced tomato gravy.</p><div class="price">₹300</div></div>
+        <div class="menu-item"><h4>Kadai Chicken</h4><p class="desc">Crushed coriander-chilli, peppers, onions.</p><div class="price">₹290</div></div>
+        <div class="menu-item"><h4>Chicken Chettinad</h4><p class="desc">Peppery South-Indian masala, coconut hints.</p><div class="price">₹320</div></div>
+        <div class="menu-item"><h4>Chicken Korma</h4><p class="desc">Mild, creamy, nutty & aromatic.</p><div class="price">₹300</div></div>
+        <div class="menu-item"><h4>Home-Style Chicken Curry</h4><p class="desc">Onion-tomato base, rustic spices.</p><div class="price">₹270</div></div>
+        <div class="menu-item"><h4>Mutton Rogan Josh</h4><p class="desc">Kashmiri classic, slow-braised richness.</p><div class="price">₹380</div></div>
+        <div class="menu-item"><h4>Mutton Korma</h4><p class="desc">Cashew-yoghurt slow curry, royal finish.</p><div class="price">₹390</div></div>
+        <div class="menu-item"><h4>Andhra Chicken Curry</h4><p class="desc">Fiery, tangy, chilli-forward masala.</p><div class="price">₹310</div></div>
+        <div class="menu-item"><h4>Goan Fish Curry</h4><p class="desc">Coconut, kokum & coastal spices.</p><div class="price">₹340</div></div>
+        <div class="menu-item"><h4>Malabar Fish Curry</h4><p class="desc">Kerala style, coconut milk & curry leaves.</p><div class="price">₹345</div></div>
+        <div class="menu-item"><h4>Prawn Masala</h4><p class="desc">Juicy prawns in onion-tomato bhuna.</p><div class="price">₹420</div></div>
+        <div class="menu-item"><h4>Egg Curry</h4><p class="desc">Boiled eggs in robust masala gravy.</p><div class="price">₹200</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Course: Biryanis -->
+  <div class="menu-section" id="maincourse">
+    <h2 class="section-title">Main Course</h2>
+
+    <!-- Veg Biryanis -->
+    <div class="menu-category">
+      <h3>Veg Biryanis <span class="pill">Dum Handi</span></h3>
+      <div class="menu-items">
+        <div class="menu-item"><h4>Veg Dum Biryani</h4><p class="desc">Layered basmati, garden veggies, slow-cooked.</p><div class="price">₹230</div></div>
+        <div class="menu-item"><h4>Paneer Biryani</h4><p class="desc">Marinated paneer, saffron-kissed rice.</p><div class="price">₹270</div></div>
+        <div class="menu-item"><h4>Mushroom Biryani</h4><p class="desc">Umami-rich mushrooms, aromatic spices.</p><div class="price">₹250</div></div>
+        <div class="menu-item"><h4>Hyderabadi Veg Biryani</h4><p class="desc">Authentic layered dum, crisp onions.</p><div class="price">₹280</div></div>
+        <div class="menu-item"><h4>Kathal (Jackfruit) Biryani</h4><p class="desc">Meaty jackfruit chunks, bold masala.</p><div class="price">₹265</div></div>
+        <div class="menu-item"><h4>Soya Chaap Biryani</h4><p class="desc">Protein-rich chaap, Delhi style.</p><div class="price">₹260</div></div>
+        <div class="menu-item"><h4>Subz-e-Zafrani Biryani</h4><p class="desc">Saffron, nuts & mixed vegetables.</p><div class="price">₹285</div></div>
+        <div class="menu-item"><h4>Corn & Peas Biryani</h4><p class="desc">Sweet corn, green peas, mild spices.</p><div class="price">₹240</div></div>
+        <div class="menu-item"><h4>Veg Kofta Biryani</h4><p class="desc">Crisp veg koftas layered with rice.</p><div class="price">₹275</div></div>
+        <div class="menu-item"><h4>Navratan Biryani</h4><p class="desc">Nine-jewel veggies, nuts & raisins.</p><div class="price">₹290</div></div>
+        <div class="menu-item"><h4>Veg Tawa Pulao</h4><p class="desc">Mumbai street-style, butter tossed.</p><div class="price">₹210</div></div>
+        <div class="menu-item"><h4>Jeera Rice</h4><p class="desc">Fragrant cumin-tempered basmati.</p><div class="price">₹160</div></div>
+      </div>
+    </div>
+
+    <!-- Non-Veg Biryanis -->
+    <div class="menu-category">
+      <h3>Non-Veg Biryanis <span class="pill">Chef Special</span></h3>
+      <div class="menu-items">
+        <div class="menu-item special">
+          <span class="badge">SPECIAL</span>
+          <h4>Special Hyderabadi Chicken Dum Biryani</h4>
+          <p class="desc">Signature dum with saffron, mint, fried onions — tender chicken, royal aroma.</p>
+          <div class="price">₹360</div>
+        </div>
+        <div class="menu-item"><h4>Chicken Biryani</h4><p class="desc">Classic masala, balanced spice & aroma.</p><div class="price">₹320</div></div>
+        <div class="menu-item"><h4>Boneless Chicken Biryani</h4><p class="desc">All comfort, no bones, extra tenderness.</p><div class="price">₹340</div></div>
+        <div class="menu-item"><h4>Andhra Chicken Biryani</h4><p class="desc">Fiery chilli kick, bold flavours.</p><div class="price">₹335</div></div>
+        <div class="menu-item"><h4>Chicken 65 Biryani</h4><p class="desc">Dum rice topped with crispy 65 bites.</p><div class="price">₹330</div></div>
+        <div class="menu-item"><h4>Chicken Tikka Biryani</h4><p class="desc">Smoky tikka layered with saffron rice.</p><div class="price">₹345</div></div>
+        <div class="menu-item"><h4>Mutton Biryani</h4><p class="desc">Slow-cooked mutton, deep robust masala.</p><div class="price">₹420</div></div>
+        <div class="menu-item"><h4>Keema Biryani</h4><p class="desc">Minced mutton & basmati, richly spiced.</p><div class="price">₹395</div></div>
+        <div class="menu-item"><h4>Kolkata Chicken Biryani</h4><p class="desc">Subtle spices, potato & fragrant rice.</p><div class="price">₹335</div></div>
+        <div class="menu-item"><h4>Malabar Chicken Biryani</h4><p class="desc">Kerala style with ghee & fried onions.</p><div class="price">₹350</div></div>
+        <div class="menu-item"><h4>Prawn Biryani</h4><p class="desc">Juicy prawns, coastal spice bouquet.</p><div class="price">₹460</div></div>
+        <div class="menu-item"><h4>Fish Biryani</h4><p class="desc">Delicate fish fillets, tangy masala.</p><div class="price">₹380</div></div>
+        <div class="menu-item"><h4>Egg Biryani</h4><p class="desc">Spiced eggs & fragrant rice, hearty.</p><div class="price">₹240</div></div>
+        <div class="menu-item"><h4>Mixed Meat Biryani</h4><p class="desc">Chicken + mutton harmony, festive.</p><div class="price">₹440</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desserts -->
+  <div class="menu-section" id="desserts">
+    <h2 class="section-title">Desserts</h2>
+    <div class="menu-items">
+      <div class="menu-item"><h4>Gulab Jamun</h4><p class="desc">Warm khoya dumplings soaked in syrup.</p><div class="price">₹110</div></div>
+      <div class="menu-item"><h4>Rasmalai</h4><p class="desc">Soft chenna discs in saffron milk.</p><div class="price">₹160</div></div>
+      <div class="menu-item"><h4>Rasgulla</h4><p class="desc">Spongy cottage-cheese balls, light syrup.</p><div class="price">₹120</div></div>
+      <div class="menu-item"><h4>Kesar Kulfi</h4><p class="desc">Saffron-pistachio dense Indian ice-cream.</p><div class="price">₹130</div></div>
+      <div class="menu-item"><h4>Kheer</h4><p class="desc">Creamy rice pudding with nuts.</p><div class="price">₹120</div></div>
+      <div class="menu-item"><h4>Phirni</h4><p class="desc">Ground rice custard set in clay bowls.</p><div class="price">₹130</div></div>
+      <div class="menu-item"><h4>Jalebi with Rabri</h4><p class="desc">Crisp coils topped with thickened milk.</p><div class="price">₹150</div></div>
+      <div class="menu-item"><h4>Gajar ka Halwa</h4><p class="desc">Slow-cooked carrots, ghee & khoya.</p><div class="price">₹160</div></div>
+      <div class="menu-item"><h4>Moong Dal Halwa</h4><p class="desc">Rich, nutty, winter favourite.</p><div class="price">₹180</div></div>
+      <div class="menu-item"><h4>Mysore Pak</h4><p class="desc">Ghee-laden gram-flour fudge.</p><div class="price">₹140</div></div>
+      <div class="menu-item"><h4>Basundi</h4><p class="desc">Cardamom milk reduced till silky.</p><div class="price">₹150</div></div>
+      <div class="menu-item"><h4>Shahi Tukda</h4><p class="desc">Saffron rabri over fried bread.</p><div class="price">₹170</div></div>
+    </div>
+  </div>
+
+  <!-- Cool Drinks -->
+  <div class="menu-section" id="cooldrinks">
+    <h2 class="section-title">Cool Drinks</h2>
+    <div class="menu-items">
+      <div class="menu-item"><h4>Mango Lassi</h4><p class="desc">Sweet mango & yogurt blend, chilled.</p><div class="price">₹140</div></div>
+      <div class="menu-item"><h4>Sweet Lassi</h4><p class="desc">Classic Punjabi sweet yogurt drink.</p><div class="price">₹120</div></div>
+      <div class="menu-item"><h4>Salted Lassi</h4><p class="desc">Lightly salted, roasted cumin.</p><div class="price">₹115</div></div>
+      <div class="menu-item"><h4>Masala Chaas</h4><p class="desc">Spiced buttermilk, curry leaves tadka.</p><div class="price">₹100</div></div>
+      <div class="menu-item"><h4>Fresh Lime Soda (Sweet)</h4><p class="desc">Zesty & refreshing.</p><div class="price">₹90</div></div>
+      <div class="menu-item"><h4>Fresh Lime Soda (Salt)</h4><p class="desc">Salty-tangy cooler.</p><div class="price">₹90</div></div>
+      <div class="menu-item"><h4>Fresh Lime Soda (Mix)</h4><p class="desc">Perfect sweet-salt balance.</p><div class="price">₹95</div></div>
+      <div class="menu-item"><h4>Jaljeera</h4><p class="desc">Cumin-mint sour cooler, digestive.</p><div class="price">₹100</div></div>
+      <div class="menu-item"><h4>Nimbu Pani</h4><p class="desc">Classic lemonade, homestyle.</p><div class="price">₹80</div></div>
+      <div class="menu-item"><h4>Aam Panna</h4><p class="desc">Raw mango cooler, smoky cumin.</p><div class="price">₹130</div></div>
+      <div class="menu-item"><h4>Rose Milk</h4><p class="desc">Chilled rose-syrup milk, nostalgic.</p><div class="price">₹110</div></div>
+      <div class="menu-item"><h4>Badam (Almond) Milk</h4><p class="desc">Saffron & almond flakes, chilled.</p><div class="price">₹150</div></div>
+      <div class="menu-item"><h4>Cold Coffee</h4><p class="desc">Creamy, lightly sweetened, iced.</p><div class="price">₹160</div></div>
+      <div class="menu-item"><h4>Tender Coconut Water</h4><p class="desc">Naturally hydrating, fresh.</p><div class="price">₹90</div></div>
+      <div class="menu-item"><h4>Falooda (Royal)</h4><p class="desc">Rose, basil seeds, sev & ice-cream.</p><div class="price">₹190</div></div>
+      <div class="menu-item"><h4>Fresh Juices</h4><p class="desc">Orange / Watermelon / Pineapple.</p><div class="price">₹140</div></div>
+    </div>
+  </div>
+
+  <!-- Specials banner -->
+  <section class="specials">
+    <h3>Today’s Offer</h3>
+    <p>Flat 15% off on all Biryanis • Lunch Combo from ₹249 (Mon–Thu)</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Royal Indian Restaurant • 123 Flavor Street, Hyderabad</p>
+    <p>Open: Mon–Sun • 10:00 AM – 11:00 PM • Call: <a href="#">+91-90000-12345</a></p>
+  </footer>
+
+</body>
+</html>
